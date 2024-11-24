@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify, make_response, render_template
 
 # Это callable WSGI-приложение
 app = Flask(__name__)

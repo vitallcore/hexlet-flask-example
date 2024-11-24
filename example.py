@@ -47,3 +47,8 @@ def foo():
     # Устанавливаем cookie
     response.set_cookie('foo', 'bar')
     return response
+
+
+@app.post('/users')
+def users():
+    return 'Users', 302

@@ -28,3 +28,8 @@ def json():
 @app.route('/html/')
 def html():
     return render_template('index.html')  # Возвращает тип text/html
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return 'Oops!', 404

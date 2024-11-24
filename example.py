@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    print(request.headers) # Выводит все заголовки
+    print(request.headers)  # Выводит все заголовки
     return 'Welcome to Flask!'
 
 
@@ -18,3 +18,13 @@ def users_get():
 @app.post('/users')
 def users_post():
     return 'POST /users'
+
+
+@app.route('/json/')
+def json():
+    return {'json': 42}  # Возвращает тип application/json
+
+
+@app.route('/html/')
+def html():
+    return render_template('index.html')  # Возвращает тип text/html

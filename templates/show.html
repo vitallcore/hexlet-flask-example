@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+    <a href="/users">Пользователи</a>
+    <!-- BEGIN -->
+    {% for key, value in user.items() %}
+      <div>
+        {{ key }}: {{ value }}
+      </div>
+    {% endfor %}
+    <!-- END -->
+  </body>
+</html>

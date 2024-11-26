@@ -57,3 +57,19 @@ def users():
 @app.route('/courses/<id>')
 def courses_show(id):
     return f'Course id: {id}'
+
+
+@app.route('/users/<int:id>')
+def get_user(id):
+    filtered_users = filter(lambda user: user['id'] == id, users)
+    user = next(filtered_users, None)
+
+    if user is None:
+        return 'Page not found', 404
+
+    return render_template('users/show.html', user=user)
+
+
+@app.route('/users')
+def get_users():
+    return render_template('users/index.html', users=users)

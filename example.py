@@ -99,3 +99,17 @@ def bar_index():
         'bar.html',
         messages=messages,
     )
+
+
+@app.route('/schools/<id>')
+def schools_show(id):
+    repo = SchoolRepository()
+    school = repo.find(id)
+
+    if not school:
+        return 'Page not found', 404
+
+    return render_template(
+        'schools/show.html',
+        school=school,
+    )

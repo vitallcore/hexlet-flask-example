@@ -4,36 +4,18 @@
     <title>Example application</title>
   </head>
   <body>
-    <table>
-    {% for user in users %}
-      <tr>
-        <td>
-          {{ user['id'] }}
-        </td>
-        <td>
-          <a href="/users/{{ user['id'] }}">{{ user['first_name'] }}</a>
-        </td>
-      </tr>
+  <ul>
+    {% for post in posts %}
+    <li>
+      <a href="{{ url_for('get_post', slug=post.slug) }}">{{ post.title }}</a>
+    </li>
     {% endfor %}
-    </table>
+  </ul>
+
+  <br>
+
+  <div>
+    <a href="?page={{ 1 if page < 2 else page - 1 }}">Prev</a> <a href="?page={{ page + 1 }}">Next</a>
+  </div>
   </body>
 </html>
-
-{% extends "courses/layout.html" %}
-
-{% block title %}Курсы{% endblock %}
-
-{% block content %}
-<table>
-     {% for course in courses %}
-     <tr>
-       <td>
-           {{ course.id }}
-       </td>
-       <td>
-           {{ course.name }}
-       </td>
-     </tr>
-     {% endfor %}
- </table>
-{% endblock %}

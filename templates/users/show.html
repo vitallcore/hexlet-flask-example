@@ -4,15 +4,10 @@
     <title>Example application</title>
   </head>
   <body>
-    <a href="/users">Пользователи</a>
-    {% for key, value in user.items() %}
-      <div>
-        {{ key }}: {{ value }}
-      </div>
-    {% endfor %}
+  <a href="/posts">Posts</a>
+  <h1>{{ post.title }}</h1>
+  <div>
+    {{ post.body }}
+  </div>
   </body>
 </html>
-
-<div>
-  {{ school.id }}: {{ school.name }}
-</div>
